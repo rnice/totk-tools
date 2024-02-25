@@ -1,0 +1,19 @@
+{
+    "name": "save-data-printer",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/save-data-printer/src",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nx/js:tsc",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/save-data-printer",
+                "main": "libs/save-data-printer/src/index.ts",
+                "tsConfig": "libs/save-data-printer/tsconfig.lib.json",
+                "assets": ["libs/save-data-printer/*.md"]
+            }
+        }
+    },
+    "tags": []
+}

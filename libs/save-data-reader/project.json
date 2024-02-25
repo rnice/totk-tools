@@ -1,0 +1,19 @@
+{
+    "name": "save-data-reader",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/save-data-reader/src",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nx/js:tsc",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/save-data-reader",
+                "main": "libs/save-data-reader/src/index.ts",
+                "tsConfig": "libs/save-data-reader/tsconfig.lib.json",
+                "assets": ["libs/save-data-reader/*.md"]
+            }
+        }
+    },
+    "tags": []
+}

@@ -1,0 +1,71 @@
+{
+    "name": "node-save-dump",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/node-save-dump/src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nx/esbuild:esbuild",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "platform": "node",
+                "outputPath": "dist/apps/node-save-dump",
+                "format": ["cjs"],
+                "bundle": false,
+                "main": "apps/node-save-dump/src/main.ts",
+                "tsConfig": "apps/node-save-dump/tsconfig.app.json",
+                "assets": [
+                    "apps/node-save-dump/src/assets",
+                    {
+                        "input": "libs/node-shared/src/assets",
+                        "glob": "**/*",
+                        "output": "libs/node-shared/src/assets"
+                    }
+                ],
+                "generatePackageJson": true,
+                "esbuildOptions": {
+                    "sourcemap": true,
+                    "outExtension": {
+                        ".js": ".js"
+                    }
+                }
+            },
+            "configurations": {
+                "development": {},
+                "production": {
+                    "esbuildOptions": {
+                        "sourcemap": false,
+                        "outExtension": {
+                            ".js": ".js"
+                        }
+                    }
+                }
+            }
+        },
+        "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "node-save-dump:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "node-save-dump:build:development"
+                },
+                "production": {
+                    "buildTarget": "node-save-dump:build:production"
+                }
+            }
+        },
+        "start": {
+            "dependsOn": ["build"],
+            "executor": "nx:run-commands",
+            "outputs": [],
+            "options": {
+                "command": "node dist/apps/node-save-dump/main.js"
+            }
+        }
+    },
+    "tags": []
+}

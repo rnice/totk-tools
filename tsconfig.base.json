@@ -1,0 +1,36 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2020", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@totk-tools/data-buffer": ["libs/data-buffer/src/index.ts"],
+            "@totk-tools/definitions": ["libs/definitions/src/index.ts"],
+            "@totk-tools/node-shared": ["libs/node-shared/src/index.ts"],
+            "@totk-tools/save-data-differ": [
+                "libs/save-data-differ/src/index.ts"
+            ],
+            "@totk-tools/save-data-extractor": [
+                "libs/save-data-extractor/src/index.ts"
+            ],
+            "@totk-tools/save-data-printer": [
+                "libs/save-data-printer/src/index.ts"
+            ],
+            "@totk-tools/save-data-reader": [
+                "libs/save-data-reader/src/index.ts"
+            ]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
+}
