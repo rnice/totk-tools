@@ -4,6 +4,8 @@ Various tools related to TOTK. For educational purposes only.
 
 Enums, fields, and save reading logic adapted from [marcrobledo/savegame-editors](https://github.com/marcrobledo/savegame-editors/tree/master/zelda-totk)
 
+Rudimentary web tool available [here](https://rnice.github.io/totk-tools).
+
 ## Save Data Differ
 
 Compares two save files and outputs fields that differ between the two. Writes to `stdout` by default unless a path is passed with `--out`.
