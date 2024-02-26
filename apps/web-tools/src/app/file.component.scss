@@ -1,0 +1,27 @@
+:host {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 2px solid rgba(0, 0, 0, .5);
+    padding:6px;
+    margin-bottom: 6px;
+}
+
+.file-label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.file-input {
+    margin-bottom: 6px;
+}
+
+.file-actions {
+    display: flex;
+    flex-flow: row wrap;
+
+    .file-action {
+        width: 100px;
+        margin-right: 6px;
+    }
+}
