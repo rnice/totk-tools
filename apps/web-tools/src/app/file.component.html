@@ -1,4 +1,7 @@
-<span class="file-label">{{label}}</span>
+<div class="file-header">
+    <span class="file-label">{{label}}</span>
+    <input class="file-diff-label" type="text" placeholder="Diff label" [(ngModel)]="name">
+</div> 
 
 <input class="file-input" type="file" (change)="handleFileSelected($event)" #input>
 

@@ -34,6 +34,9 @@ export class AppComponent implements OnInit {
             return;
         }
 
-        this.tools.diffData(this.file1.data, this.file2.data);
+        const label1 = this.file1.name?.trim() || 'File 1';
+        const label2 = this.file2.name?.trim() || 'File 2';
+
+        this.tools.diffData(this.file1.data, this.file2.data, label1, label2);
     }
 }

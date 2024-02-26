@@ -6,10 +6,21 @@
     margin-bottom: 6px;
 }
 
+.file-header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .file-diff-label {
+        margin-left: 12px;
+        height: 16px;
+    }
+}
+
 .file-label {
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 6px;
 }
 
 .file-input {

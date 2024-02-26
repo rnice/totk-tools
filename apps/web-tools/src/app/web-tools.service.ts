@@ -67,7 +67,12 @@ export class WebToolsService {
         this.download(content.join('\n-------\n'), 'dump.txt', 'text/plain');
     }
 
-    diffData(data1: ExtractedSaveData, data2: ExtractedSaveData): void {
+    diffData(
+        data1: ExtractedSaveData,
+        data2: ExtractedSaveData,
+        label1: string,
+        label2: string,
+    ): void {
         const diff = SaveDataDiffer.diff(data1, data2);
 
         if (diff.size === 0) {
@@ -79,8 +84,8 @@ export class WebToolsService {
 
         for (const [hash, entry] of diff) {
             content.push(`Field: ${this._printer!.printFieldName(hash)}
-File 1: ${this._printer!.printData(entry[0])}
-File 2: ${this._printer!.printData(entry[1])}`);
+${label1}: ${this._printer!.printData(entry[0])}
+${label2}: ${this._printer!.printData(entry[1])}`);
         }
 
         this.download(content.join('\n-------\n'), 'diff.txt', 'text/plain');

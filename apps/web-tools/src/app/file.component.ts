@@ -17,6 +17,7 @@ export class FileComponent {
     @Input() label!: string;
 
     data: ExtractedSaveData | null = null;
+    name = '';
 
     constructor(private tools: WebToolsService) {}
 
