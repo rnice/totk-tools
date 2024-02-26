@@ -42,7 +42,14 @@ export class SaveDataPrinter {
             value = this.printValueJSON(data.value);
         }
 
-        return `(${data.type}) ${value}`;
+        let typeStr = `${data.type}`;
+
+        if (this.isDynamicallySized(data.type) && this.hasLength(data.value)) {
+            const length = data.value.length;
+            typeStr += `[${length}]`;
+        }
+
+        return `(${typeStr}) ${value}`;
     }
 
     printFieldName(hash: number): string {
@@ -51,6 +58,26 @@ export class SaveDataPrinter {
             return this.printUnknown(hash);
         }
         return fieldDefinition.name;
+    }
+
+    private hasLength(value: unknown): value is { length: number } {
+        return value != null && typeof (value as any).length === 'number';
+    }
+
+    private isDynamicallySized(type: string): boolean {
+        if (DataType.isArrayType(type as DataType)) {
+            return true;
+        }
+
+        switch (type) {
+            case DataType.Binary:
+            case DataType.String32:
+            case DataType.String64:
+            case DataType.WString16:
+                return true;
+            default:
+                return false;
+        }
     }
 
     private printDataEnum(data: DataValueEnum): string {
