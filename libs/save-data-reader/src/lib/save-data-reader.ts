@@ -153,7 +153,7 @@ export class SaveDataReader implements ISaveDataReader {
     }
 
     readInt(offset: number): number {
-        return this._buffer.readUInt32(offset);
+        return this._buffer.readInt32(offset);
     }
 
     readIntArray(offset: number): number[] {

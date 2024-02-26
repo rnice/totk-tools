@@ -1,6 +1,7 @@
 export interface IDataBuffer {
     readBytes(offset: number, length: number): number[];
     readFloat32(offset: number): number;
+    readInt32(offset: number): number;
     readString(offset: number, length: number): string;
     readUInt8(offset: number): number;
     readUInt16(offset: number): number;
@@ -38,6 +39,10 @@ export class DataBuffer implements IDataBuffer {
 
     readFloat32(offset: number): number {
         return this._dataView.getFloat32(offset, this._littleEndian);
+    }
+
+    readInt32(offset: number): number {
+        return this._dataView.getInt32(offset, this._littleEndian);
     }
 
     readString(offset: number, length: number): string {
