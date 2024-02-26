@@ -87,7 +87,7 @@ File 2: ${this._printer!.printData(entry[1])}`);
     }
 
     private async fetchAssetJSON<T>(path: string): Promise<T> {
-        const response = await fetch(`/assets/${path}`);
+        const response = await fetch(`./assets/${path}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
